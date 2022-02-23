@@ -1,0 +1,20 @@
+{
+  "name": "mercrashcoursepckg",
+  "version": "1.7.7",
+  "description": "as pert of mern stack crash course",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node backend/server.js",
+    "nodemon": "nodemon backend/server.js"
+  },
+  "author": "anand",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3"
+  }
+}
