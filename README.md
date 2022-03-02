@@ -10,3 +10,6 @@ completed seting goal routes, structured them, overrided default express error h
 
 
 Completed monoddb integration, now, when server.js runs, it will call the connectDB function which uses mongoose to connect to my mongodbatlast. The conn string MONGO_URI is added in env.properties
+
+
+Added goalModel, also implemented all the goalcontrollers in goalController.json. Tested all routes using postman
