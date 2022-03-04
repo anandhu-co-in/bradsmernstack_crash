@@ -6,7 +6,7 @@ const Goal = require('../models/goalmodel')
 //To get all goals
 const getGoals = asyncHanlder(async(req,res) => {
 
-    const goals = await Goal.find()
+    const goals = await Goal.find({user:req.user.id})
 
     res.status(200).json(goals)
 })
@@ -19,7 +19,10 @@ const setGoal = asyncHanlder(async (req,res) => {
     if(!req.body.text){
         throw new Error("Please add a text")
     }
-    const goal = await Goal.create({text:req.body.text})
+    const goal = await Goal.create({
+        user:req.user.id,
+        text:req.body.text
+    })
     res.status(200).json(goal)
 })
 
@@ -33,6 +36,12 @@ const updateGoal = asyncHanlder(async (req,res) => {
     if(!goal){
         throw new('Goal not found')
     }
+
+    if(req.user._id.toString() !== goal.user.toString()){
+        res.status(400);
+        throw new Error('You are not authorized to update another persons goal')
+    }
+
     const updatedGoal= await Goal.findByIdAndUpdate(req.params.id,req.body,{new:true})
     
     res.status(200).json(updatedGoal)
@@ -46,6 +55,11 @@ const deleteGoal = asyncHanlder(async (req,res) => {
     
     if(!goal){
         throw new('Goal not found for deleting it')
+    }
+    
+    if(req.user._id.toString() !== goal.user.toString()){
+        res.status(400);
+        throw new Error('You are not authorized to delete another persons goal')
     }
 
     await goal.remove();

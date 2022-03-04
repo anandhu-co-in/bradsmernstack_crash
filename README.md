@@ -13,3 +13,5 @@ Completed monoddb integration, now, when server.js runs, it will call the connec
 Added goalModel, also implemented all the goalcontrollers in goalController.json. Tested all routes using postman
 
 Added usermodel, implemented user routes and controlls and also implemtned jwt authentication. Created new middlewaer function to validate the token which is sent as bearer token from postman. Will be using this middleware function to protect my private routes. righ now i have used it only for getMe route 
+
+Protected other routes aswell. updated the getgoal route so that it will return the goal based on the curren user fetched from the toeken. Updated getgoal and delted goal aswell so that user is able to delete/update the goal only if it is his
