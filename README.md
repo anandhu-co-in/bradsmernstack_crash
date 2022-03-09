@@ -15,3 +15,8 @@ Added goalModel, also implemented all the goalcontrollers in goalController.json
 Added usermodel, implemented user routes and controlls and also implemtned jwt authentication. Created new middlewaer function to validate the token which is sent as bearer token from postman. Will be using this middleware function to protect my private routes. righ now i have used it only for getMe route 
 
 Protected other routes aswell. updated the getgoal route so that it will return the goal based on the curren user fetched from the toeken. Updated getgoal and delted goal aswell so that user is able to delete/update the goal only if it is his
+
+
+install froneEnd using npx create-react-app frontend --template redux
+Added  "client":"npm start --prefix frontend" in server pakage.json which can be used to start server
+clened up front end, also setup the 3 key pages of our apps, set the routes to them, also used fontawesome icons through react-icons library
