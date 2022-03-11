@@ -20,3 +20,5 @@ Protected other routes aswell. updated the getgoal route so that it will return 
 install froneEnd using npx create-react-app frontend --template redux
 Added  "client":"npm start --prefix frontend" in server pakage.json which can be used to start server
 clened up front end, also setup the 3 key pages of our apps, set the routes to them, also used fontawesome icons through react-icons library
+
+form setups, concurrently
