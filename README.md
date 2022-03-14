@@ -22,3 +22,6 @@ Added  "client":"npm start --prefix frontend" in server pakage.json which can be
 clened up front end, also setup the 3 key pages of our apps, set the routes to them, also used fontawesome icons through react-icons library
 
 form setups, concurrently
+
+
+😪, i blindly followed him and comppleted the register, login, logout things.. should deep dive and understand how things work

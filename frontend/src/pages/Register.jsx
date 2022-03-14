@@ -8,6 +8,10 @@ import {register,reset} from '../features/auth/authSlice'
 function Register() {
 
 
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+
   const [formData,setFormData]=useState({
     name:'',
     email:'',
@@ -16,11 +20,15 @@ function Register() {
   })
   
   const {name,email,password,password2} = formData
+
+
+  const {user,isLoading,isError,isSuccess,message} =useSelector(state=>state.auth)
   
   const onsubmit=(e)=>{
     e.preventDefault();
+    console.log(password==password2)
     if(password !== password2){
-      toast.error('Passwords do not match')
+      toast.error('Passwords do not match'+ password + password2)
     }else{
       const userData={
         name,
@@ -30,14 +38,13 @@ function Register() {
 
       dispatch(register(userData))
     }
-
   }
   
 
   useEffect(()=>{
 
     if(isError){
-      toast.error(message)
+      toast.error("toast in useEffeect : "+message)
     }
 
     if(isSuccess||user){
@@ -46,23 +53,15 @@ function Register() {
 
     dispatch(reset())
 
-
   },[user,isError,isSuccess,message,navigate,dispatch])
 
-
+  
+  //To update the form data as I type into the fields
   const onChange=(e)=>{
     setFormData((preveState)=>{
-      return  {...preveState, [e.target.name]:[e.target.value]}
+      return  {...preveState, [e.target.name]:e.target.value} // I need to understand why square brackets needed in left side of colon
     })
   }
-
-
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
-  
-  const {user,isLoading,isError,isSuccess,message} =useSelector(state=>state.auth)
-
-  console.log(formData);
 
   if(isLoading){
     return <><h1>SPINNER</h1></>
