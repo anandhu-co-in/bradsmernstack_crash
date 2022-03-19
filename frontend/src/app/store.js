@@ -9,3 +9,6 @@ export const store = configureStore({
 
   },
 });
+
+
+//the key above, is coming as the key of the state when i checked through redux dev tools

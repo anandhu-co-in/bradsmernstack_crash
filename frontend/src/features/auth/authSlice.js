@@ -15,7 +15,7 @@ const initialState = {
 
  
 //Register user
-export const register = createAsyncThunk('auth/register', async (user,thunkAPI) => {
+export const register = createAsyncThunk('auth/register', async (user,thunkAPI) => {   // that string i pass here, is coming as the action name, its appended with pending, rejected etc
     try {
         return await authService.register(user)
     } catch (error) {   
@@ -43,10 +43,6 @@ export const logout = createAsyncThunk('auth/logout', async () => {
 
 
 
-
-
-
-
 export const authSlice= createSlice({
     name:'auth',
     initialState,
@@ -68,7 +64,7 @@ export const authSlice= createSlice({
         })
         .addCase(register.fulfilled, (state,action)=>{
             state.isLoading=false
-            state.isError=true
+            state.isError=false
             state.user=action.payload
         })
         .addCase(register.rejected,(state,action) =>{
@@ -82,7 +78,7 @@ export const authSlice= createSlice({
         })
         .addCase(login.fulfilled, (state,action)=>{
             state.isLoading=false
-            state.isError=true
+            state.isError=false
             state.user=action.payload
         })
         .addCase(login.rejected,(state,action) =>{

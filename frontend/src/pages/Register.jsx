@@ -7,8 +7,7 @@ import {register,reset} from '../features/auth/authSlice'
 
 function Register() {
 
-
-  const navigate = useNavigate()
+  const navigate = useNavigate() //will be used to navigate to another page
   const dispatch = useDispatch()
 
 
@@ -21,12 +20,12 @@ function Register() {
   
   const {name,email,password,password2} = formData
 
-
+  //accessing auth from state here
   const {user,isLoading,isError,isSuccess,message} =useSelector(state=>state.auth)
   
+  //when i click the submit button
   const onsubmit=(e)=>{
     e.preventDefault();
-    console.log(password==password2)
     if(password !== password2){
       toast.error('Passwords do not match'+ password + password2)
     }else{
@@ -35,7 +34,6 @@ function Register() {
         email,
         password
       }
-
       dispatch(register(userData))
     }
   }
@@ -44,7 +42,7 @@ function Register() {
   useEffect(()=>{
 
     if(isError){
-      toast.error("toast in useEffeect : "+message)
+      toast.error("isError true in state.auth : "+message)
     }
 
     if(isSuccess||user){
@@ -53,7 +51,7 @@ function Register() {
 
     dispatch(reset())
 
-  },[user,isError,isSuccess,message,navigate,dispatch])
+  },[user,isError,isSuccess,message,navigate,dispatch]) //need to understand what happens when passing functions in useeffect
 
   
   //To update the form data as I type into the fields
@@ -63,6 +61,7 @@ function Register() {
     })
   }
 
+  //is isLoding is true in state, we should show loading spinner
   if(isLoading){
     return <><h1>SPINNER</h1></>
   }

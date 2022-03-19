@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const API_URL = '/api/users'
 
-
+//register aynchronous funtion, it calls api and returns response
 const register = async (userData) =>{
     const resposne = await axios.post(API_URL,userData)
 
