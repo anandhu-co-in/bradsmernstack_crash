@@ -24,4 +24,6 @@ clened up front end, also setup the 3 key pages of our apps, set the routes to t
 form setups, concurrently
 
 
-😪, i blindly followed him and comppleted the register, login, logout things.. should deep dive and understand how things work
+need to further understand raect toolkit apart
+
+now at last session, started with goals. also user will redirect back to login from dashboard if not loggedin. now working on goalservice and goalslice
