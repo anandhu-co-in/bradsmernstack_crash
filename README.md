@@ -27,3 +27,5 @@ form setups, concurrently
 need to further understand raect toolkit apart
 
 now at last session, started with goals. also user will redirect back to login from dashboard if not loggedin. now working on goalservice and goalslice
+
+complete goals form in dashboard should implement the function to be dispatched etc...
