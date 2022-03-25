@@ -2,6 +2,7 @@ import {useState,useEffect} from 'react'
 import {useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 import {toast} from 'react-toastify'
+import { createGoal } from '../features/goals/goalSlice'
 
 function GoalForm() {
 
@@ -14,7 +15,7 @@ function GoalForm() {
     setgoal('')
 
     console.log("dispatching", goal);
-    // dispatch(createeGoal(goal)) // Need to create createGoal Function
+    dispatch(createGoal({text:goal})) // Need to create createGoal Function
   }
 
 

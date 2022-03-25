@@ -17,7 +17,8 @@ const getGoals = asyncHanlder(async(req,res) => {
 //To add a new goal
 const setGoal = asyncHanlder(async (req,res) => {
     if(!req.body.text){
-        throw new Error("Please add a text")
+        res.status(400); //I have doubt, if i didnt pass status code here, error middleware give error response but with code 200, how?
+        throw new Error("Please add a text_from_setGoal_in_GoalController")
     }
     const goal = await Goal.create({
         user:req.user.id,
