@@ -42,3 +42,6 @@ heroku deployment :
 manually created app in heroku ui, i didnt user cli this time
 env variables created in settings
 in deploy tab, connected repo and branch and enabled automatic deployment
+
+
+DONE----- 
