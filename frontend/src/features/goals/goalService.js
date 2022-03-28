@@ -19,10 +19,26 @@ const addGoal = async (goalData,token) =>{
      return resposne.data
 }
 
+//register aynchronous funtion, it calls api and returns response
+const getGoals = async (token) =>{
+
+    //since we need to pass the token as this is a protected route, we use config
+    const config ={
+        headers:{
+            Authorization : `Bearer ${token}`
+        }
+    }
+
+    const resposne = await axios.get(API_URL,config)
+
+     return resposne.data
+}
+
 
 
 const goalService ={
-    addGoal
+    addGoal,
+    getGoals
 }
 
 export default goalService

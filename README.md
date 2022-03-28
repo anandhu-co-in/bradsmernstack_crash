@@ -33,3 +33,5 @@ complete goals form in dashboard should implement the function to be dispatched
 now i can create new goal. In the goal service function, token is passed using the config object, we are using protected api. (need to understand how this differes form devConn project)
 
 TODO - when no error status code is set from the goalController function, the errormiddleware responding with 200 status code, why? shouldnt it respond with 500? (const statusCode=res.statusCode ? res.statusCode :500)
+
+completed getgoals in dashboard, maybe add the date etc with each goal, and also no goals message when goals array is empty

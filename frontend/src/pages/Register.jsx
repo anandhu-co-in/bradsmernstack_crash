@@ -63,7 +63,7 @@ function Register() {
 
   //is isLoding is true in state, we should show loading spinner
   if(isLoading){
-    return <><h1>SPINNER</h1></>
+    return <><h1>SPINNERREGISTER</h1></>
   }
 
   return (

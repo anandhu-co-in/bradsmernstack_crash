@@ -55,7 +55,7 @@ function Login() {
   },[user,isError,isSuccess,message,navigate,dispatch])
 
   if(isLoading){
-    return <><h1>SPINNER</h1></>
+    return <><h1>SPINNERLogin</h1></>
   }
 
   console.log(formData);
