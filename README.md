@@ -37,3 +37,8 @@ TODO - when no error status code is set from the goalController function, the er
 completed getgoals in dashboard, maybe add the date etc with each goal, and also no goals message when goals array is empty
 
 completed delete goals also
+
+heroku deployment :
+manually created app in heroku ui, i didnt user cli this time
+env variables created in settings
+in deploy tab, connected repo and branch and enabled automatic deployment
