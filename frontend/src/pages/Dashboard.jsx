@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import GoalItem from "../components/GoalItem";
 import { getGoals, reset } from "../features/goals/goalSlice";
 import GoalForm from "./GoalForm";
 
@@ -40,10 +41,8 @@ function Dashboard() {
       <GoalForm />
 
       {goals.map((goal) => (
-        <b>
-          {goal.text + goal.createdAt}
-          <br />
-        </b>
+
+        <GoalItem key={goal._id} goal={goal}/>
       ))}
     </>
   );

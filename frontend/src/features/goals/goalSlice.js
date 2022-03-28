@@ -43,6 +43,22 @@ export const getGoals = createAsyncThunk('goals/get', async (_,thunkAPI) => { //
 })
 
 
+//Delete Goal
+export const deleteGoal = createAsyncThunk('goals/delete', async (id,thunkAPI) => {   // that string i pass here, is coming as the action name, its appended with pending, rejected etc
+    try {
+
+        //i need the token here to be used when calling api. It can be here using thunk API like this
+        const token = thunkAPI.getState().auth.user.token
+    
+        return await goalService.deleteGoal(id,token)
+
+    } catch (error) {   
+        const message = (error.response && error.response.data && error.response.data.message)||error.message||error.toString()
+        return thunkAPI.rejectWithValue(message)
+    }
+})
+
+
 
 export const goalSlice= createSlice({
     name:'goals',
@@ -74,6 +90,19 @@ export const goalSlice= createSlice({
                 state.goals = action.payload
             })
             .addCase(getGoals.rejected,(state,action)=>{
+                state.isLoading = false
+                state.isError = true
+                state.message = action.payload
+            })
+            .addCase(deleteGoal.pending,(state)=>{
+                state.isLoading = true
+            })
+            .addCase(deleteGoal.fulfilled,(state,action)=>{
+                state.isLoading = false
+                state.isSuccess = true
+                state.goals = state.goals.filter((goal)=>goal._id!=action.payload.id)
+            })
+            .addCase(deleteGoal.rejected,(state,action)=>{
                 state.isLoading = false
                 state.isError = true
                 state.message = action.payload
